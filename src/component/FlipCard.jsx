@@ -4,14 +4,17 @@ import styled from 'styled-components'
 const FlipImageContainer = styled.div`
   width: 200px;
   height: 200px;
+  position: relative;
   transform-style: preserve-3d;
-  transform: ${props => props.flipped ? 'rotateY(180deg)' : 'rotateY(0deg'  };
+  transition: 0.5s;
+  transform: ${props => props.flipped ? 'rotateY(180deg)' : 'rotateY(0deg)'};
 `
 
 const FrontImage = styled.img`
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  position: absolute;
 `
 
 const BackImage = styled.img`

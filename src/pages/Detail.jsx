@@ -9,9 +9,15 @@ export default function Detail() {
     const { pokemonId } = useParams()
 
     const pokemon = useSelector(selectPokemonById(Number(pokemonId)))
+
+    if (!pokemon) {
+        return <div>Loading...</div>; // 데이터가 없으면 로딩 UI 표시
+    }
     
     return (
-        <div className="flex flex-col justify-center items-center border border-[gray] p-[30px] rounded-[10px]">
+        <div className="bg-white flex flex-col justify-center items-center 
+                        border py-[30px] px-[60px] 
+                        rounded-[10px] border-b-[8px] border-r-[8px] border-black">
             <div className="text-[28px] mb-[10px]">
                 {pokemon.name}
                 <FavoriteButton pokemonId={Number(pokemonId)}/>
